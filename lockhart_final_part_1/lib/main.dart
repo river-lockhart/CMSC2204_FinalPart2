@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_secure_storage/flutter_secure_storage.dart';
-import 'package:lockhart_final_part_1/Respositories/DataService.dart';
+import 'package:lockhart_final_part_1/Repositories/DataService.dart';
 import 'Views/aboutView.dart';
+import 'Views/listView.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,13 +18,13 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: MyHomePage(title: 'Lockhart Final Part 1'),
+      home: const MyHomePage(title: 'Lockhart Final Part 2'),
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
-  MyHomePage({Key? key, required this.title});
+  const MyHomePage({Key? key, required this.title});
 
   final String title;
 
@@ -74,7 +74,6 @@ class _MyHomePageState extends State<MyHomePage> {
     }
   }
 
-  //prints snackbar message
   void onLoginCallCompleted(bool success, String message) {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(content: Text(message)),
@@ -83,6 +82,13 @@ class _MyHomePageState extends State<MyHomePage> {
     setState(() {
       _loading = false;
     });
+
+    if (success) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => const HyruleList()),
+      );
+    }
   }
 
   @override
@@ -151,7 +157,8 @@ class _MyHomePageState extends State<MyHomePage> {
                                 builder: (context) => AboutView()),
                           );
                         },
-                        child: Text("About", style: TextStyle(fontSize: 16)),
+                        child:
+                            const Text("About", style: TextStyle(fontSize: 16)),
                       ),
                       Text("Api Version: $apiVersion"),
                     ],

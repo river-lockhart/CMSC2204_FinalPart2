@@ -17,7 +17,7 @@ class AboutView extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Text(
-                'This app is collection of monsters, friends, and items you find throughout Hyrule in The Legend of Zelda: Breath of the Wild. The application was designed by me, but the information was made available by gadhagod on Github. Thank you to them and you for taking a look at this application',
+                'This app is a collection of monsters, friends, and items you find throughout Hyrule in The Legend of Zelda: Breath of the Wild. The application was designed by me, but the information was made available by gadhagod on Github. Thank you to them and you for taking a look at this application.',
                 textAlign: TextAlign.center,
                 style: TextStyle(fontSize: 18),
               ),
